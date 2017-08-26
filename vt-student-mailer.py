@@ -260,7 +260,7 @@ def message_test(first_names, full_names, emails, template, is_html):
 
 def main():
     """
-    The mail function
+    The main function
     Handles input parsing and function calls
     Returns errors if there are any issues with input
     Contains version and usage information
