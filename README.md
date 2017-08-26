@@ -12,47 +12,47 @@ Because each message is an individual email, you don't have to worry about accid
 
 # Version Information
 
-This is v. 1.0 of this tool, and it is currently being tested. I offer no warrantee on this software. You can take this and do whatever you want with it. Note that I am an English student, so use this at your own risk.
+This is v. 1.0 of vt-student-mailer, and it is currently being tested. I offer no warrantee on this software. You can take this and do whatever you want with it. Note that I am an English student, so use this at your own risk.
 
 # Acknowledgement
 
-This tool was based off of a script by [Arjun Krishna Babu](https://medium.freecodecamp.org/send-emails-using-code-4fcea9df63f "How to Send Emails Using Python"). See the original Medium post for more information about the script and how Python interacts with email messages and servers.
+This program was based off of a script by [Arjun Krishna Babu](https://medium.freecodecamp.org/send-emails-using-code-4fcea9df63f "How to Send Emails Using Python"). See the original Medium post for more information about the script and how Python interacts with email messages and servers.
 
 # System Requirements
 
-This tool was written and tested on an Apple Macbook Pro with OS X El Capitan running Python 2.7.10. It will probably work on other machines running a version of Python 2, but your mileage may vary. Let me know if you run into any issues with compatibility.
+This program was written and tested on an Apple Macbook Pro with OS X El Capitan running Python 2.7.10. It will probably work on other machines running a version of Python 2, but your mileage may vary. Let me know if you run into any issues with compatibility.
 
 # Getting Ready
 
-To use this app, you will need an app password for your Gmail account. This is a fairly simple process. Google has [provided documentation](https://support.google.com/accounts/answer/185833?hl=en "App Password Documentation"). Be sure to safely store or remember your app password, as it will not be saved anywhere in the tool.
+To use this program, you will need an app password for your Gmail account. This is a fairly simple process. Google has [provided documentation](https://support.google.com/accounts/answer/185833?hl=en "App Password Documentation"). Be sure to safely store or remember your app password, as it will not be saved anywhere in the program.
 
 Be sure to secure your app password like you would any other password because it could be used to access your Gmail account. You can manage app passwords, and I recommend regularly resetting your app password just like you would any other password.
 
 # Command Line Flags
 
-This tool was designed to have a simple Unix-y interface. It requires at least a classlist file and an email template file. Optional flags allow you to send the same message to a directory of multiple classlist files and to specify HTML input if you want to include things like links and in-line formatting in your email.
+This program was designed to have a simple Unix-y interface. It requires at least a classlist file and an email template file for basic single class use. Optional flags allow you to send the same message to a directory of multiple class list files and to specify HTML input if you want to include things like links and in-line formatting in your email.
 
-## Required Parameters
+## Basic Parameters
 
-- -s *classlist.csv*: S stands for single list. Use this flag to specify a single file from which to read addresses and student names. File should be a standard class list CSV from Hokie Spa. A file name must follow the -s flag.
+- -s *classlist.csv*: S stands for single list. Use this option to specify a single file from which to read addresses and student names. File should be a standard class list CSV from Hokie Spa. A file name must follow the -s flag.
 
-- -m *email.txt*: M stands for message. Use this to specify the email template to send. A file name must follow the -s flag.
+- -m *email.txt*: M stands for message. Use this option to specify the email template to send. A file name must follow the -m flag.
 
-## Optional Parameters
+## Advanced Parameters
 
-- -d */path/to/lists/*: D stands for directory of lists. Use this flag to send a message to a directory containing multiple class lists. The directory should only contain class lists. Use this flag instead of -s.
+- -d */path/to/lists/*: D stands for directory of lists. Use this option to send a message to multiple class lists in a single directory. The directory should only contain class lists as it will attempt to read any file with a ".csv" extension. Use this option instead of -s.
 
-- --html: Use this flag to indicate that your *email.txt* file uses HTML formatting. The default is plaintext. You will need to use this flag if your message contains links or any other HTML elements. Be sure that all paragraphs are wrapped in paragraph tags, or paragraphs will not render correctly.
+- --html: Use this option to indicate that your *email.txt* file uses HTML formatting. The default is plaintext. You will need to use this option if your message contains links or any other HTML elements. Be sure that all paragraphs are wrapped in paragraph tags, or paragraphs will not render correctly.
 
-- -q: Q stands for Quiet. By default, the program is verbose when sending messages. It will write one line for each email message sent. Use the -q flag to suppress this output. Errors will still print to the terminal.
+- -q: Q stands for Quiet. By default, the program is verbose when sending messages. It will write one line for each email message sent. Use the -q option to suppress this output. Errors will still print to the terminal.
 
-## Support Options
+## Support Parameters
 
-- -t: T stands for template. Use this tag on its own. This will generate a plaintext template.txt file with an example message illustrating the use of placeholders for student names.
+- -h: H stands for help. Use this option on its own. This will print usage information and exit gracefully. Any non-supported flag should also return usage information.
 
-- -h: H stands for help. Use this tag on its own. This will print usage information and exit gracefully. Any non-supported flag should also return usage information.
+- -t: T stands for template. Use this option on its own. This will generate a plaintext template.txt file with an example message illustrating the use of placeholders for student names.
 
-- -x: X stands for eXperiment. This flag is for a testing mode, which allows you to check that your template message and your class list CSV are playing nice. It will print one email message based on your template to the terminal screen. It will use the student information from the first line in the CSV file.
+- -x: X stands for eXperiment. This option is for a testing mode, which allows you to check that your template message and your class list CSV are playing nice. It will print one sample email message based on your template to the terminal screen. It will use the student information from the first line in the CSV file. In this mode, the program does not send any messages.
 
 # Personalizing Messages
 
@@ -60,11 +60,11 @@ In your *email.txt* document, you can add student names to give each message a p
 
 - ${FIRST_NAME}
 
-Anywhere this appears in your document, the student's first given name will be substituted.
+Anywhere this appears in your email message document, the student's first given name will be substituted.
 
 Ex: Dear ${FIRST_NAME}, -> Dear Andrew,
 
-If more than one given name is listed, only the first name is returned. If only one name is given, then that name is returned. You can replace the first name field in the CSV with a student's preferred name. Spaces are assumed to be a delimiter.
+If more than one given name is listed for the student, only the first name is returned. If only one name is given, then that name is returned. You can replace the first name field in the CSV with a student's preferred name. Spaces are assumed to be a delimiter.
 
 - ${FULL_NAME}
 
@@ -80,13 +80,13 @@ Failing to do this when using dollar signs will return an error.
 
 # Sending your Messages
 
-When you execute the program, you will be prompted for some additional information before your messages can be sent. You will have the opportunity to double check information and re-enter if needed. You will be asked for:
+When you execute the program in one of the message sending modes, you will be prompted for some additional information before your messages can be sent. You will have the opportunity to double check information and re-enter if needed. You will be asked for:
 
 1. Your Gmail address, including the @gmaildomain.com part of the address
 2. Your Gmail app password
 3. A subject line for your email message
 
-Once you provide this information, the software will start sending messages provided the email address and password information was correct and input files were properly formatted. Output will let you know as messages are being sent. They will appear in your Gmail outbox, and replies will go to your address.
+You must complete all of these fields. Once you provide this information, the software will start sending messages provided the email address and password information was correct and input files were properly formatted. Default output will let you know as individual messages are being sent. They will appear in your Gmail outbox, and replies will go to your address.
 
 # Use Cases
 
@@ -96,15 +96,15 @@ Prints usage options.
 
 - vt-student-mailer.py -s *classlist.csv* -m *email.txt*
 
-Sends the email in *email.txt* to everyone on *classlist.csv*. Assumes the input email message is plaintext. HTML tags will be taken literally and will not render as HTML elements.
+Sends the email in *email.txt* to everyone on *classlist.csv*. Assumes the input email message is plaintext. HTML tags will be taken literally and will not render as HTML elements. Names will be substituted where indicated.
 
 - vt-student-mailer.py -d */path/to/lists* -m *email.txt*
 
-Sends the email in *email.txt* to everyone on each *classlist.csv* in the specified directory. Assumes all files in the directory are properly formatted class list CSV documents.
+Sends the email in *email.txt* to everyone on each *classlist.csv* in the specified directory. Assumes all files in the directory are properly formatted class list CSV documents. Names will be substituted where indicated.
 
 - vt-student-mailer.py -s *classlist.csv* -m *email.txt* --html
 
-Sends the email in *email.txt* to everyone on *classlist.csv*. Assumes the input email message is HTML and will render HTML elements like links.
+Sends the email in *email.txt* to everyone on *classlist.csv*. Assumes the input email message is HTML and will render HTML elements like links. Names will be substituted where indicated.
 
 - vt-student-mailer.py -t
 
@@ -112,7 +112,7 @@ Generates a file named example-email.txt in the current working directory demons
 
 - vt-student-mailer.py -x -s *classlist.csv* -m *email.txt*
 
-The -x flag indicates test mode. This will print a formatted email to your terminal to test that templating variables are entered correctly and that input files are being read accurately. No messages will be sent in test mode. The first line of the class list provided will be used for the test.
+The -x flag indicates test mode. This will print a formatted email to your terminal to test that templating variables are entered correctly and that input files are being read accurately. No messages will be sent in test mode. The first line of the class list provided will be used for the test. Names will be substituted where indicated.
 
 # Security
 
