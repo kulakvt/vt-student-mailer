@@ -134,7 +134,7 @@ The -x flag indicates test mode. This will print a formatted email to your termi
 
 - The templating engine assumes that the dollar sign symbol ($) indicates a variable to substitute. If you need to enter a dollar sign, use a second dollar sign to escape. In other words, '$$20' in your email message file will become '$20' in the sent email message.
 
-- This application does not access your full Gmail account. It will not fetch your signature or other personalized settings. Therefore you will either need to include your signature manually if you would like to use one. You can use HTML to adjust style settings.
+- This application does not access your full Gmail account. It will not fetch your signature or other personalized settings. Therefore you will need to include your signature manually if you would like to use one. You can use HTML to adjust style settings.
 
 # Troubleshooting
 
