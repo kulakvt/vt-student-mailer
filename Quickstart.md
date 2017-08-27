@@ -9,7 +9,7 @@ To begin, you will need the following items:
 
 2. An email message you want to send to all of your students. Edit this in your favorite plaintext editor. You can send your message as a plaintext message or using HTML formatting.
 
-3. A Google app password for your Gmail account. This is easy enough to generate, and it provides some additional security over using your regular Gmail password. Google provides [documentation for getting an app password]((https://support.google.com/accounts/answer/185833?hl=en "App Password Documentation")). This program will not store your credentials, so please remember or keep track of your app password.
+3. A Google app password for your Gmail account. This is easy enough to generate, and it provides some additional security over using your regular Gmail password. Google provides [documentation for getting an app password](https://support.google.com/accounts/answer/185833?hl=en "App Password Documentation"). This program will not store your credentials, so please remember or keep track of your app password.
 
 # Editing Your Email
 
