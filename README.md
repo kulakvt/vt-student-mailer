@@ -156,4 +156,8 @@ The -x flag indicates test mode. This will print a formatted email to your termi
 
 - Logging for messages that did not send allowing for quickly resending
 
+- Improved exception handling
+
+- Improved compliance with PEP 8 Style
+
 - Other ideas? Let me know!
